@@ -61,7 +61,8 @@
             } else {
                 let token = jwt.sign(
                 { userId: checkUser._id, role: checkUser.role },
-                process.env.SecretKey
+                process.env.SecretKey,
+                {expiresIn:"1h"}
                 );
                 res.status(200).send({
                 message: "Login Successful!",
