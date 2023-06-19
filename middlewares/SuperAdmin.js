@@ -3,7 +3,7 @@ require("dotenv").config()
 const SuperAdmin=(req,res,next)=>{
     let token=req.headers.authorization;
     try{
-        const decoded=jwt.verify(token,process.env.Secretkey)
+        const decoded=jwt.verify(token,process.env.mykey)
         if(decoded){
             if(decoded.role==="superadmin"){
                 next()

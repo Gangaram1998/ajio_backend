@@ -3,7 +3,7 @@ require("dotenv").config()
 const Authenticator=(req,res,next)=>{
     try{
         let  token=req.headers.authorization;
-        const decoded=jwt.verify(token,process.env.SecretKey)
+        const decoded=jwt.verify(token,process.env.mykey)
         if(decoded){
             
             if(decoded.role=="deactivate"){
