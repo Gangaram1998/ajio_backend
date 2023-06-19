@@ -6,7 +6,7 @@ const { CartModel } = require("../models/cartModel")
     const {address,mobile_number,products}=req.body
     const token=req.headers.authorization
     try{
-        const decoded= jwt.verify(token,process.env.Secretkey)
+        const decoded= jwt.verify(token,process.mykey)
         const product=new OrderModel({address,mobile_number,products,userId:decoded.userId})
         await product.save()
         await CartModel.deleteMany({userId:decoded.userId})
